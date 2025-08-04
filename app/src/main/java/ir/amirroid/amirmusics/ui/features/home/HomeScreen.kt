@@ -600,7 +600,6 @@ fun SheetMax(
                         initialDelayMillis = 2000,
                         iterations = Int.MAX_VALUE,
                         velocity = 100.dp,
-                        delayMillis = 3000,
                         animationMode = MarqueeAnimationMode.Immediately
                     )
                     .padding(top = 18.dp),
@@ -824,7 +823,6 @@ fun SheetMin(
                                 initialDelayMillis = 2000,
                                 iterations = Int.MAX_VALUE,
                                 velocity = 100.dp,
-                                delayMillis = 3000,
                                 animationMode = MarqueeAnimationMode.Immediately
                             ),
                         maxLines = 1,

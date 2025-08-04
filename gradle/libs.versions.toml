@@ -1,0 +1,67 @@
+[versions]
+agp = "8.11.1"
+kotlin = "2.2.0"
+composeBom = "2025.07.00"
+androidxActivity = "1.10.1"
+androidxAppCompat = "1.7.1"
+androidxConstraintLayout = "2.2.1"
+androidxCore = "1.16.0"
+androidxEspresso = "3.6.1"
+androidxLifecycle = "2.9.1"
+androidxTestExt = "1.2.1"
+navigationCompose = "2.9.0-beta03"
+hilt = "2.57"
+room = "2.7.2"
+coil = "2.7.0"
+palette = "1.0.0"
+exoUi = "1.8.0-rc01"
+media2 = "1.2.1"
+exoplayer = "2.19.1"
+lottieCompose = "6.1.0"
+lifecycleViewModelCompose = "2.9.2"
+hiltNavigationCompose = "1.1.0"
+
+[plugins]
+androidApplication = { id = "com.android.application", version.ref = "agp" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+hiltAndroid = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
+kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+
+[libraries]
+coreKtx = { group = "androidx.core", name = "core-ktx", version.ref = "androidxCore" }
+lifecycleRuntimeKtx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "androidxLifecycle" }
+activityCompose = { group = "androidx.activity", name = "activity-compose", version.ref = "androidxActivity" }
+navigationCompose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navigationCompose" }
+roomRuntime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+roomKtx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
+roomCompiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+coilCompose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
+paletteKtx = { group = "androidx.palette", name = "palette-ktx", version.ref = "palette" }
+exoCore = { group = "com.google.android.exoplayer", name = "exoplayer-core", version.ref = "exoplayer" }
+exoMediaSessionExt = { group = "com.google.android.exoplayer", name = "extension-mediasession", version.ref = "exoplayer" }
+exoUi = { group = "com.google.android.exoplayer", name = "exoplayer-ui", version.ref = "exoplayer" }
+mediaSession = { group = "androidx.media", name = "media", version.ref = "media2" }
+media = { group = "androidx.media", name = "media", version = "1.4.3" }
+lottieCompose = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottieCompose" }
+lifecycleViewModelCompose = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "lifecycleViewModelCompose" }
+hiltNavigationCompose = { group = "androidx.hilt", name = "hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
+
+# Compose BOM (platform)
+composeBom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+
+# Compose UI (use version from BOM, no explicit version)
+composeUi = { group = "androidx.compose.ui", name = "ui" }
+composeUiGraphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+composeUiToolingPreview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+material3 = { group = "androidx.compose.material3", name = "material3" }
+
+# Test libraries
+junit = { group = "junit", name = "junit", version = "4.13.2" }
+androidxTestExtJunit = { group = "androidx.test.ext", name = "junit", version.ref = "androidxTestExt" }
+espressoCore = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "androidxEspresso" }
+composeUiTestJunit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+composeUiTooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+composeUiTestManifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+
+# Navigation animated (Accompanist)
+navigationAnimated = { group = "com.google.accompanist", name = "accompanist-navigation-animation", version = "0.31.3-beta" }

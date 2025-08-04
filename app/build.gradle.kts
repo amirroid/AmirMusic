@@ -2,18 +2,20 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
+    alias(libs.plugins.hiltAndroid)
+    alias(libs.plugins.kotlin.compose)
+//    id("com.google.devtools.ksp") version "2.2.0-2.0.2"
     kotlin("kapt")
-    alias(libs.plugins.hilt)
 }
 
 android {
     namespace = "ir.amirroid.amirmusics"
-    compileSdk = 33
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "ir.amirroid.amirmusics"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
@@ -42,9 +44,6 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.3"
-    }
     packaging {
         resources {
             excludes += "/META-INF/{AL2.0,LGPL2.1}"
@@ -53,58 +52,50 @@ android {
 }
 
 dependencies {
+    implementation(libs.coreKtx)
+    implementation(libs.lifecycleRuntimeKtx)
+    implementation(libs.activityCompose)
 
-    implementation(libs.core.ktx)
-    implementation(libs.lifecycle.runtime.ktx)
-    implementation(libs.activity.compose)
-    implementation(platform(libs.compose.bom))
-    implementation(libs.ui)
-    implementation(libs.ui.graphics)
-    implementation(libs.ui.tooling.preview)
+    implementation(platform(libs.composeBom))
+
+    implementation(libs.composeUi)
+    implementation(libs.composeUiGraphics)
+    implementation(libs.composeUiToolingPreview)
     implementation(libs.material3)
+
     testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.test.ext.junit)
-    androidTestImplementation(libs.espresso.core)
-    androidTestImplementation(platform(libs.compose.bom))
-    androidTestImplementation(libs.ui.test.junit4)
-    debugImplementation(libs.ui.tooling)
-    debugImplementation(libs.ui.test.manifest)
+    androidTestImplementation(libs.androidxTestExtJunit)
+    androidTestImplementation(libs.espressoCore)
+    androidTestImplementation(platform(libs.composeBom))
+    androidTestImplementation(libs.composeUiTestJunit4)
+    debugImplementation(libs.composeUiTooling)
+    debugImplementation(libs.composeUiTestManifest)
 
+    implementation(libs.navigationAnimated)
 
-    // navigation
-    implementation(libs.navigation.animated)
+    implementation(libs.exoUi)
+    implementation(libs.mediaSession)
+    implementation(libs.exoCore)
+    implementation(libs.exoMediaSessionExt)
 
-    // exo player
-    implementation(libs.exoplayer.ui)
-    implementation(libs.extension.mediasession)
-    implementation(libs.exoplayer.core)
-    // media
     implementation(libs.media)
 
-    // lifecycle
-    implementation(libs.lifecycle)
+    implementation(libs.lifecycleViewModelCompose)
 
-    // hilt
-    implementation(libs.hilt.android)
-    kapt(libs.hilt.android.compiler)
-    implementation(libs.androidx.hilt.navigation.compose)
+    implementation("com.google.dagger:hilt-android:${libs.versions.hilt.get()}")
+    kapt("com.google.dagger:hilt-compiler:${libs.versions.hilt.get()}")
+    implementation(libs.hiltNavigationCompose)
 
-    // coil
-    implementation(libs.coil.compose)
+    implementation(libs.coilCompose)
 
+//    implementation("androidx.constraintlayout:constraintlayout-compose:${libs.versions.androidxConstraintLayout.get()}")
 
-    // constraint layout
-    implementation(libs.androidx.constraintlayout.compose)
+    implementation(libs.paletteKtx)
 
-    // palette
-    implementation(libs.androidx.palette.ktx)
+    implementation(libs.roomRuntime)
+    kapt(libs.roomCompiler)
+    annotationProcessor(libs.roomCompiler)
+    implementation(libs.roomKtx)
 
-    // room
-    implementation(libs.androidx.room.runtime)
-    annotationProcessor(libs.androidx.room.room.compiler)
-    kapt(libs.androidx.room.room.compiler)
-    implementation(libs.androidx.room.ktx)
-
-    // lottie
-    implementation(libs.lottie.compose)
+    implementation(libs.lottieCompose)
 }
